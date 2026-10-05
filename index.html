@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lila Accessories — fashion accessories in Kifissia, Glyfada and Larissa. It's not about brand, it's about style.">
+  <title>Lila Accessories | It's About Style</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+
+    :root{
+      --ink:#272329;
+      --muted:#756d75;
+      --cream:#fbf7f3;
+      --rose:#ead6d5;
+      --rose-deep:#b88789;
+      --line:#e9e0dc;
+      --white:#fff;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:var(--cream);font-family:"DM Sans",sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%}
+    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(251,247,243,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(233,224,220,.8)}
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:"Playfair Display",serif;font-size:28px;font-weight:700;letter-spacing:.04em}
+    .logo span{font-weight:500}
+    .nav-links{display:flex;gap:30px;font-size:14px}
+    .nav-links a:hover{color:var(--rose-deep)}
+    .menu{display:none;background:none;border:0;font-size:24px}
+    .hero{min-height:92vh;padding:130px 0 70px;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+    .eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--rose-deep);font-weight:600}
+    h1,h2,h3{font-family:"Playfair Display",serif;line-height:1.05;margin:0}
+    h1{font-size:clamp(56px,8vw,108px);letter-spacing:-.04em;margin:20px 0}
+    .hero-copy p{max-width:560px;color:var(--muted);font-size:18px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{padding:14px 22px;border-radius:999px;border:1px solid var(--ink);font-size:14px;font-weight:600;transition:.2s}
+    .btn.primary{background:var(--ink);color:#fff}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-art{position:relative;min-height:560px;border-radius:240px 240px 20px 20px;overflow:hidden;background:#e7d7d1}
+    .hero-art img{height:100%;object-fit:cover}
+    .hero-tag{position:absolute;bottom:22px;left:22px;background:rgba(255,255,255,.9);padding:14px 18px;border-radius:12px;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+    section{padding:100px 0}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}
+    .section-head h2{font-size:clamp(40px,5vw,66px)}
+    .section-head p{max-width:420px;color:var(--muted);margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;border:1px solid var(--line);overflow:hidden}
+    .card img{aspect-ratio:4/5;object-fit:cover}
+    .card-body{padding:22px}
+    .card h3{font-size:28px;margin-bottom:8px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .quote{background:var(--ink);color:#fff;text-align:center;padding:100px 20px}
+    .quote p{font-family:"Playfair Display",serif;font-size:clamp(34px,5vw,68px);max-width:950px;margin:0 auto;line-height:1.08}
+    .quote small{display:block;margin-top:25px;color:#d9c9c9;letter-spacing:.18em;text-transform:uppercase}
+    .locations{background:#f4ebe7}
+    .location-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .location{background:#fff;padding:30px;border:1px solid var(--line);min-height:240px}
+    .location .number{font-size:12px;letter-spacing:.18em;color:var(--rose-deep)}
+    .location h3{font-size:34px;margin:18px 0 12px}
+    .location p{color:var(--muted);margin:5px 0}
+    .location a{text-decoration:underline;text-underline-offset:4px}
+    .soon{display:inline-block;margin-top:14px;padding:7px 10px;border-radius:999px;background:var(--cream);font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .contact h2{font-size:clamp(42px,6vw,76px)}
+    .contact p{color:var(--muted);max-width:480px}
+    .contact-box{background:#fff;border:1px solid var(--line);padding:34px}
+    .contact-row{padding:17px 0;border-bottom:1px solid var(--line)}
+    .contact-row:last-child{border:0}
+    .contact-label{text-transform:uppercase;font-size:11px;letter-spacing:.16em;color:var(--rose-deep)}
+    .contact-value{font-size:18px;margin-top:5px}
+    footer{padding:30px 0;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+    footer .container{display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:800px){
+      .nav-links{display:none}
+      .menu{display:block}
+      .hero{grid-template-columns:1fr;padding-top:110px}
+      .hero-art{min-height:440px}
+      .grid,.location-grid{grid-template-columns:1fr}
+      .section-head,.contact{grid-template-columns:1fr;display:grid}
+      section{padding:70px 0}
+      footer .container{display:block}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#top">Lila <span>Accessories</span></a>
+      <div class="nav-links">
+        <a href="#collection">Collection</a>
+        <a href="#locations">Stores</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="container hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Fashion accessories · Greece</div>
+        <h1>It's not about brand.<br><em>It's about style.</em></h1>
+        <p>Discover Lila Accessories — a curated destination for fashion accessories and everyday pieces designed to add personality to your look.</p>
+        <div class="buttons">
+          <a class="btn primary" href="#collection">Explore the style</a>
+          <a class="btn" href="#locations">Find a store</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1100&q=85" alt="Elegant fashion accessories">
+        <div class="hero-tag">Lila Accessories</div>
+      </div>
+    </section>
+
+    <section id="collection" class="container">
+      <div class="section-head">
+        <h2>Made for<br>your style.</h2>
+        <p>From statement pieces to subtle finishing touches, find accessories that make an outfit feel unmistakably yours.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85" alt="Jewelry collection">
+          <div class="card-body"><h3>Jewelry</h3><p>Pieces that add a little sparkle to everyday style.</p></div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85" alt="Fashion bags">
+          <div class="card-body"><h3>Bags</h3><p>Practical silhouettes with a fashion-forward attitude.</p></div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=85" alt="Accessories">
+          <div class="card-body"><h3>Details</h3><p>The finishing touches that turn simple into special.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="quote" id="about">
+      <p>“It's not about brand, it's about style!!!”</p>
+      <small>— Lila Accessories</small>
+    </section>
+
+    <section id="locations" class="locations">
+      <div class="container">
+        <div class="section-head">
+          <h2>Visit Lila.</h2>
+          <p>Find us in Kifissia, Glyfada and Larissa. We’d love to see you in store.</p>
+        </div>
+        <div class="location-grid">
+          <article class="location">
+            <div class="number">01 · ATTICA</div>
+            <h3>Kifissia</h3>
+            <p>Κασσαβέτη 1, Κηφισιά 145 62</p>
+            <p><a href="tel:+302103231295">21 0323 1295</a></p>
+            <p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Κασσαβέτη+1,+Κηφισιά+145+62">Get directions →</a></p>
+          </article>
+          <article class="location">
+            <div class="number">02 · ATTICA</div>
+            <h3>Glyfada</h3>
+            <p>Visit our Glyfada store.</p>
+            <span class="soon">Address coming soon</span>
+          </article>
+          <article class="location">
+            <div class="number">03 · THESSALY</div>
+            <h3>Larissa</h3>
+            <p>Visit our Larissa store.</p>
+            <span class="soon">Address coming soon</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container contact">
+      <div>
+        <div class="eyebrow">Come say hello</div>
+        <h2>Style starts with Lila.</h2>
+        <p>For the latest arrivals, store information and opening hours, contact the Kifissia store directly or visit us in person.</p>
+      </div>
+      <div class="contact-box">
+        <div class="contact-row">
+          <div class="contact-label">Kifissia</div>
+          <div class="contact-value"><a href="tel:+302103231295">21 0323 1295</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-label">Address</div>
+          <div class="contact-value">Κασσαβέτη 1, Κηφισιά 145 62</div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-label">Google rating</div>
+          <div class="contact-value">12 reviews · Kifissia</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Lila Accessories</span>
+      <span>Kifissia · Glyfada · Larissa</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      const links=document.querySelector('.nav-links');
+      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      if(window.innerWidth <= 800){
+        links.style.position='absolute';
+        links.style.top='76px';
+        links.style.left='0';
+        links.style.right='0';
+        links.style.padding='20px';
+        links.style.background='rgba(251,247,243,.98)';
+        links.style.flexDirection='column';
+      }
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
